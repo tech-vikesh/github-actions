@@ -6,23 +6,26 @@ on:
   workflow_dispatch:
 
 jobs:
-
+  # every job needs seperate runner, its called parallelism
   code:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
         run: echo "COde Clone from GitHub"
   build:
+    needs: [code]
     runs-on: ubuntu-latest
     steps:
       - name: Build Docker Container
         run: echo "Docker container build"
   test:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Test the container
         run: echo "Testing the container"
   deploy:
+    needs: [build,test]
     runs-on: ubuntu-latest
     steps:
       - name: Deploying the app
