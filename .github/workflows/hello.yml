@@ -1,7 +1,7 @@
 # This is workflow name
 name: Hello
 
-# runs on a trigger
+# runs on an automatic trigger, whenever change is pushed to branch
 on:
   push:
     branches: [main]
