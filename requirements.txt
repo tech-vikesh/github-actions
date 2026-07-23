@@ -1,2 +1,2 @@
-flask
-flake8
+flask8
+flask==3.10
